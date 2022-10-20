@@ -1,14 +1,9 @@
 package liga.medical.medicalmonitoring.core.hometask5;
 
-public class AntiL {
+public class AntiL extends AntiS {
     public void sendResponse() {
-        System.out.println("response");
+        /*отправляет ответ сообщением пользователю на почту,
+        в прошлой реализации просто выводил его в консоль */
     }
 }
 
-class AntiL2 extends AntiL {
-    @Override
-    public String sendResponse() {
-        return "response";
-    }
-}
