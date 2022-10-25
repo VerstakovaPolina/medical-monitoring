@@ -15,6 +15,11 @@
     <artifactId>monitoring-core</artifactId>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
@@ -64,7 +69,7 @@
                     <execution>
                         <id>build-info</id>
                         <goals>
-                            <goal>build-info</goal>
+                            <goal>repackage</goal>
                         </goals>
                     </execution>
                 </executions>
