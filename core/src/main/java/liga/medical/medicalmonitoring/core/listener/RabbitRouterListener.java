@@ -1,5 +1,6 @@
 package liga.medical.medicalmonitoring.core.listener;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import liga.medical.medicalmonitoring.core.api.RabbitRouterService;
 import liga.medical.medicalmonitoring.core.model.QueueNames;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -16,6 +17,11 @@ public class RabbitRouterListener {
 
     @RabbitListener(queues = QueueNames.COMMON_MONITORING_QUEUE_NAME)
     public void receiveAndRedirectMessage(String message) {
-        rabbitRouterService.routeMessage(message);
+        try {
+            rabbitRouterService.routeMessage(message);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
     }
+
 }
